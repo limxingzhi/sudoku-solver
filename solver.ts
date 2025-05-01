@@ -98,7 +98,9 @@ function solve (): Grid | undefined {
     if (!candidatesExist) continue;
 
     // populate the stack with all possible values of the first blank grid
-    candidates.map(candidate => stack.push(updateGrid(currentGrid, blankPosition, candidate)));
+    candidates
+      // .sort(() => Math.floor(Math.random() * 10) %2 ? -1 : 1) // don't stack in order
+      .map(candidate => stack.push(updateGrid(currentGrid, blankPosition, candidate)));
   }
 }
 
